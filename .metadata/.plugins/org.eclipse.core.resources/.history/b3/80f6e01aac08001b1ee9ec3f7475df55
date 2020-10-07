@@ -1,0 +1,7 @@
+body{
+	background:black;
+}
+
+.custom-bg{
+	background:#2196f3;
+}

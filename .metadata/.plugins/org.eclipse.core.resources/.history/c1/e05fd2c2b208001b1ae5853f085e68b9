@@ -1,0 +1,8 @@
+
+body{
+	background:red;
+}
+
+.custom-bg{
+	background:#2196f3;
+}
