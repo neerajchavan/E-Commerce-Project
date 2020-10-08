@@ -1,0 +1,5 @@
+package com.IndianCart.Dao;
+
+public class RegisterDao {
+
+}

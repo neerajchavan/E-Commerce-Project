@@ -1,0 +1,10 @@
+package com.IndianCart.Dao;
+
+public class RegisterDao {
+	
+	public static int registerUser(UserBean ub)
+	{
+		return 1;
+	}
+
+}
