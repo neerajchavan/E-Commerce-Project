@@ -1,0 +1,7 @@
+.custom-bg {
+	background:#ACECF7;
+}
+
+.form-group label{
+	margin-bottom : 1px;
+}

@@ -1,0 +1,7 @@
+.custom-bg {
+	background: #ACECF7;
+}
+
+form label{
+	margin-bottom: 20px;
+}

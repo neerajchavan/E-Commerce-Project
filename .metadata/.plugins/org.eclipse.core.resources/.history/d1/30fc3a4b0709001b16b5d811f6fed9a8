@@ -1,0 +1,26 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Registration</title>
+<%@include file="Components/Common_JS_CSS.jsp" %>
+</head>
+<body>
+<%@include file="Components/navbar.jsp" %>
+
+<div class="row">
+<div class="col-md-4 offset-md-4">
+<form>
+	<div class="form-group">
+    <label for="name">Email address</label>
+    <input type="email" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+</form>
+</div>
+</div>
+
+</body>
+</html>
