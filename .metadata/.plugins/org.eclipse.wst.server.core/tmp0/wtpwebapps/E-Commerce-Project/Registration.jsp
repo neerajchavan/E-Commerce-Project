@@ -13,10 +13,15 @@
 	<div class="container-fluid">
 		<div class="row mt-2">
 			<div class="col-md-4 offset-md-4">
+			
 				<div class="card p-4">
+				
+				<%@include file="Components/Message.jsp" %>
+				
 					<div class="card-body">
 						<h3 class="text-center">Sign Up</h3>
-						<form action="RegisterServlet" method="get">
+
+						<form action="RegisterServlet" method="post">
 							<div class="form-group">
 								<label for="name">User Name</label> <input type="text"
 									class="form-control" id="name" placeholder="Enter here"
