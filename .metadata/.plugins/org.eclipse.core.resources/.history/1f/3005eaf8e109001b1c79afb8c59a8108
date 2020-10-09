@@ -1,0 +1,20 @@
+package com.IndianCart.Dao;
+
+import com.IndianCart.Model.UserBean;
+
+public class LoginDao {
+	public static int validateLogin(UserBean ub) {
+		int i = 0;
+		Connection con;
+		String query = "";
+
+		try {
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return i;
+	}
+
+}

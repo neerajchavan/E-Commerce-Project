@@ -1,0 +1,19 @@
+.custom-bg {
+	background:#333333;
+}
+
+.custom-bg-200{
+	background:#e1f4f3;
+}
+
+.form-group label{
+	
+}
+
+.login-text h3{
+	color:#706c61;
+}
+
+.login-text{
+	color:#19d3da;
+}

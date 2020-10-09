@@ -1,0 +1,23 @@
+.custom-bg {
+	background:#eeeeee;
+}
+
+.custom-bg-200{
+	background:#929aab;
+}
+
+.form-group label{
+	
+}
+
+.login-text h3{
+	color:#393e46;
+}
+
+.signup-text{
+	color:#393e46;
+}
+
+.login-text{
+	background:#929aab;
+}

@@ -1,0 +1,12 @@
+package com.IndianCart.Dao;
+import com.IndianCart.Model.UserBean;
+
+public class LoginDao {
+	public static int validateLogin(UserBean ub)
+	{
+		int i=0;
+		
+		return i;
+	}
+
+}
