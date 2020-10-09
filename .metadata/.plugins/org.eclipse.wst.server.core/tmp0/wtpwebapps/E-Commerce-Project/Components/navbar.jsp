@@ -1,3 +1,12 @@
+<%@page import="com.IndianCart.Model.UserBean"%>
+
+
+<%
+	UserBean ub1 = (UserBean) session.getAttribute("current-user");
+%>
+
+
+
 <nav class="navbar navbar-expand-lg navbar-light custom-bg">
 	<div class="container">
 		<a class="navbar-brand" href="#">IndianCart</a>
@@ -28,11 +37,26 @@
 			</ul>
 
 			<ul class="navbar-nav ml-auto">
+				<%
+					if (ub1 == null) {
+				%>
+
 				<li class="nav-item active"><a class="nav-link"
 					href="Login.jsp">Login</a></li>
 
 				<li class="nav-item active"><a class="nav-link"
 					href="Registration.jsp">Register</a></li>
+				<%
+					} else {
+				%>
+
+				<li class="nav-item active"><a class="nav-link" href="#"><%=ub1.getUserName()%></a></li>
+
+				<li class="nav-item active"><a class="nav-link"
+					href="LogoutServlet">Logout</a></li>
+				<%
+					}
+				%>
 
 			</ul>
 		</div>

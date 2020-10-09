@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.IndianCart.Dao.LoginDao;
+import com.IndianCart.Dao.UserInfoDao;
 import com.IndianCart.Model.UserBean;
 
 
@@ -35,13 +36,19 @@ public class LoginServlet extends HttpServlet {
 		ub.setUserPass(request.getParameter("pass"));
 		
 		boolean b = LoginDao.validateLogin(ub);
+		String userType = UserInfoDao.getUserType(ub);
+		ub.setUserType(userType);
+		System.out.println("User Type: "+userType);
 		HttpSession session;
 		
 		if (b) {
 			session = request.getSession();
-			session.setAttribute("message", "Welcome!");
-			response.sendRedirect("Login.jsp");
-			return;
+			session.setAttribute("current-user", ub );
+
+			if(userType.equals("Admin"))
+				response.sendRedirect("Admin.jsp");
+			else if(userType.equals("Normal"))
+				response.sendRedirect("User.jsp");
 		} else {
 			session = request.getSession();
 			session.setAttribute("error_message", "Invalid Email/Password!");

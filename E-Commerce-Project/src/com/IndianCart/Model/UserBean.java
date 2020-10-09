@@ -2,7 +2,15 @@ package com.IndianCart.Model;
 
 public class UserBean {
 	private int userID;
-	private String userName, userEmail, userPass, userMobno, userPic, userAddress;
+	private String userName, userEmail, userPass, userMobno, userPic, userAddress, userType;
+
+	public String getUserType() {
+		return userType;
+	}
+
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
 
 	public int getUserID() {
 		return userID;
