@@ -6,9 +6,8 @@
 	background:#929aab;
 }
 
-.form-group label{
-	
-}
+
+/*Login Page*/
 
 .login-text h3{
 	color:#393e46;
@@ -21,3 +20,23 @@
 .login-text:hover{
 	background:#929aab;
 }
+
+
+/* Admin Page */
+
+.admin-img{
+ max-width : 10px;	
+ height: 100px;
+}
+
+.admin .card{
+	border: 1px solid #929aab;
+}
+
+.admin .card:hover{
+	box-shadow : 0 8px 50px grey;
+	transform : scale(1.05);
+	cursor : pointer;
+	transition : 0.3s;
+}
+

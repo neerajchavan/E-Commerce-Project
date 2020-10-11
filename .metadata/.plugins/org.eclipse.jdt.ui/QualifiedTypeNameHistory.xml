@@ -8,7 +8,7 @@
 <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
 <fullyQualifiedTypeName name="com.IndianCart.Dao.LoginDao"/>
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
-<fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
 <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
 <fullyQualifiedTypeName name="com.IndianCart.Dao.UserInfoDao"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
 </qualifiedTypeNameHistroy>
