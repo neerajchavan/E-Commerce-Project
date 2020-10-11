@@ -1,0 +1,26 @@
+package com.IndianCart.Dao;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.IndianCart.Model.CategoryBean;;
+
+public class CategoryFetchDao {
+	
+	public static List<CategoryBean> getCategory(){
+		List<CategoryBean> list = new ArrayList<CategoryBean>();
+		
+		Connection con;
+		
+		try {
+			
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+
+}

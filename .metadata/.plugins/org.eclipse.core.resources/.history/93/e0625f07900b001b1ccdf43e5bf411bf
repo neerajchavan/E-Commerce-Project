@@ -1,0 +1,10 @@
+package com.IndianCart.Dao;
+import com.IndianCart.Model.CategoryBean;;
+
+public class CategoryFetchDao {
+	
+	public List<CateogryBean> fetchCategory(){
+		List
+	}
+
+}

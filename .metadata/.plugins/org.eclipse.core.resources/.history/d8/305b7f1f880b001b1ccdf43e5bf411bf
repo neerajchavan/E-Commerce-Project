@@ -1,0 +1,50 @@
+package com.IndianCart.Servlets;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.IndianCart.Model.CategoryBean;
+
+
+public class ProductOperationServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    
+    public ProductOperationServlet() {
+        super();
+    }
+
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	}
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String operation = request.getParameter("operation");
+		System.out.println("Operation value: "+operation);
+		
+		if(operation.equals("addCategory"))
+		{
+			//Fetching Category Data
+			
+			String cTitle = request.getParameter("catTitle");
+			String cDescription = request.getParameter("catDescription");
+			
+			CategoryBean category = new CategoryBean();
+			category.setCategoryTitle(cTitle);
+			category.setCategoryDescription(cDescription);
+			
+			int i = AddCategoryDao.addCategory(category);
+		}
+		else if(operation.equals("addProduct"))
+		{
+			
+		}
+
+	}
+
+}
