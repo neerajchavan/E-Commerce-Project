@@ -95,7 +95,10 @@
         </button>
       </div>
       <div class="modal-body">
-        <form>
+        <form action="ProductOperationServlet" method="post" enctype="multipart/form-data">
+        
+            <input type="hidden" name="operation" value="addProduct">
+        
         	
         	<div class="form-group">
         		<input type="text" class="form-control" name="prodTitle" placeholder="Enter prodcut title" required>

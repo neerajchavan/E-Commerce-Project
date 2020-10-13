@@ -1,0 +1,7 @@
+package com.IndianCart.Model;
+
+public class ProductBean {
+	private String prodTitle, prodDescription, prodPic;
+	private int prodId, prodQty;
+
+}

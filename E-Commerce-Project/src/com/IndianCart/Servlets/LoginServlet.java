@@ -29,7 +29,7 @@ public class LoginServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
+		//PrintWriter out = response.getWriter();
 		
 		UserBean ub = new UserBean();
 		ub.setUserEmail(request.getParameter("email"));
@@ -38,7 +38,6 @@ public class LoginServlet extends HttpServlet {
 		boolean b = LoginDao.validateLogin(ub);
 		String userType = UserInfoDao.getUserType(ub);
 		ub.setUserType(userType);
-		System.out.println("User Type: "+userType);
 		HttpSession session;
 		
 		if (b) {

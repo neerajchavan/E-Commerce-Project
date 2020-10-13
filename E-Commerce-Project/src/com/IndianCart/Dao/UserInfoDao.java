@@ -22,9 +22,7 @@ public class UserInfoDao {
 		
 			ResultSet rs = ps.executeQuery();
 			if(rs.next())
-				s = rs.getString("userType");
-			System.out.println("User Type DAO : "+ s);
-	
+				s = rs.getString("userType");	
 			
 
 		} catch (Exception e) {
