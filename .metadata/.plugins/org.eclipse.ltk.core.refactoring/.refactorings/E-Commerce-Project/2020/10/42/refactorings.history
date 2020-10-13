@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;com.IndianCart.Dao.CategoryFetchDao.java&apos; to &apos;CategoryDao.java&apos;&#x0A;- Original project: &apos;E-Commerce-Project&apos;&#x0A;- Original element: &apos;com.IndianCart.Dao.CategoryFetchDao.java&apos;&#x0A;- Renamed element: &apos;com.IndianCart.Dao.CategoryDao.java&apos;" description="Rename compilation unit &apos;CategoryFetchDao.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;com.IndianCart.Dao{CategoryFetchDao.java" name="CategoryDao.java" references="false" stamp="1602578048557" version="1.0"/>
+</session>

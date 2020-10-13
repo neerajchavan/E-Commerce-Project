@@ -63,61 +63,56 @@ public class ProductOperationServlet extends HttpServlet {
 
 		} else if (operation.equals("addProduct")) {
 
-			String pName 	= request.getParameter("prodTitle");
-			String pDesc 	= request.getParameter("prodDescription");
-			int pCaregory 	= Integer.parseInt(request.getParameter("catId"));
-			int pPrice 		= Integer.parseInt(request.getParameter("prodPrice"));
-			int pQty 		= Integer.parseInt(request.getParameter("prodQuantity"));
-			
+			String pName = request.getParameter("prodTitle");
+			String pDesc = request.getParameter("prodDescription");
+			int pCaregory = Integer.parseInt(request.getParameter("catId"));
+			int pPrice = Integer.parseInt(request.getParameter("prodPrice"));
+			int pQty = Integer.parseInt(request.getParameter("prodQuantity"));
+
 //			For storing picture of product
 			Part part = request.getPart("prodPic");
-			
+
 			ProductBean product = new ProductBean();
 			product.setProdTitle(pName);
 			product.setProdDescription(pDesc);
 			product.setpCategoryID(pCaregory);
 			product.setProdPrice(pPrice);
 			product.setProdQty(pQty);
-			product.setProdPic(part.getSubmittedFileName()); //Storing file path in DB
-						
+			product.setProdPic(part.getSubmittedFileName()); // Storing file path in DB
+
 			int i = ProductDao.addProduct(product);
-			
-			//pic upload - find out path of folder to upload picture
-			String path = "/Users/neeraj/Eclipse-Projects/E-Commerce-Project/E-Commerce-Project/WebContent/Images/Products-img"+File.separator+part.getSubmittedFileName();
-			System.out.println("path.io.FileNotFoundException: "+path);
-			
+
+			// pic upload - find out path of folder to upload picture
+			String path = "/Users/neeraj/Eclipse-Projects/E-Commerce-Project/E-Commerce-Project/WebContent/Images/Products-img"
+					+ File.separator + part.getSubmittedFileName();
+			System.out.println("path.io.FileNotFoundException: " + path);
+
 			try {
-			//uploading code
-			FileOutputStream fos = new FileOutputStream(path);
-			InputStream  is = part.getInputStream();
-			
-			//reading data
-			byte[]data = new byte[is.available()];
-			is.read(data);
-			
-			//writing the data
-			 fos.write(data);
-			 fos.close();
-			}
-			catch(Exception e)
-			{
+				// uploading code
+				FileOutputStream fos = new FileOutputStream(path);
+				InputStream is = part.getInputStream();
+
+				// reading data
+				byte[] data = new byte[is.available()];
+				is.read(data);
+
+				// writing the data
+				fos.write(data);
+				fos.close();
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
-			
-			
-			
-			if (i>0) {
+
+			if (i > 0) {
 				HttpSession session = request.getSession();
 				session.setAttribute("message", "Product Added Succesfully!");
 				response.sendRedirect("Admin.jsp");
 			} else {
 				HttpSession session = request.getSession();
-				session.setAttribute("error_message", "Something went wrong! Product has not been added, please try again later.");
+				session.setAttribute("error_message",
+						"Something went wrong! Product has not been added, please try again later.");
 				response.sendRedirect("Admin.jsp");
 			}
-			
-			
 
 		}
 

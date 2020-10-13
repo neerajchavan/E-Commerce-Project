@@ -40,3 +40,8 @@
 	transition : 0.3s;
 }
 
+/* Show Products & Categories */
+.list-group-item .active{
+	background:red;
+}
+
