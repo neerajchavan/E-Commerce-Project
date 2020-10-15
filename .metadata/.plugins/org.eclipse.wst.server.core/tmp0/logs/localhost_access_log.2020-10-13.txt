@@ -178,3 +178,9 @@
 0:0:0:0:0:0:0:1 - - [13/Oct/2020:14:42:57 +0530] "GET /E-Commerce-Project/index.jsp HTTP/1.1" 200 3728
 0:0:0:0:0:0:0:1 - - [13/Oct/2020:14:42:57 +0530] "GET /E-Commerce-Project/CSS/Style.css HTTP/1.1" 200 517
 0:0:0:0:0:0:0:1 - - [13/Oct/2020:14:42:57 +0530] "GET /E-Commerce-Project/JS/Script.js HTTP/1.1" 200 -
+0:0:0:0:0:0:0:1 - - [13/Oct/2020:15:09:13 +0530] "GET /E-Commerce-Project/index.jsp HTTP/1.1" 200 3728
+0:0:0:0:0:0:0:1 - - [13/Oct/2020:15:09:14 +0530] "GET /E-Commerce-Project/CSS/Style.css HTTP/1.1" 200 516
+0:0:0:0:0:0:0:1 - - [13/Oct/2020:15:09:36 +0530] "GET /E-Commerce-Project/index.jsp HTTP/1.1" 200 3728
+0:0:0:0:0:0:0:1 - - [13/Oct/2020:15:09:36 +0530] "GET /E-Commerce-Project/CSS/Style.css HTTP/1.1" 200 520
+0:0:0:0:0:0:0:1 - - [13/Oct/2020:15:09:53 +0530] "GET /E-Commerce-Project/index.jsp HTTP/1.1" 200 3778
+0:0:0:0:0:0:0:1 - - [13/Oct/2020:15:09:53 +0530] "GET /E-Commerce-Project/CSS/Style.css HTTP/1.1" 304 -

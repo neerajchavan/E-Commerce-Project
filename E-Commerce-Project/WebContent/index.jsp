@@ -3,6 +3,7 @@
 <%@page import="com.IndianCart.Model.*"%>
 <%@page import="com.IndianCart.Dao.ProductDao"%>
 <%@page import="com.IndianCart.Dao.CategoryDao"%>
+<%@page import="com.IndianCart.Helper.TenWordsHelper"%>
 <%@page import="java.util.List"%>
 <!DOCTYPE html>
 <html>
@@ -26,8 +27,9 @@
 		<!-- Categories -->
 		<div class="col-md-2">
 
-			<div class="list-group">
-				<a href="#" class="list-group-item active">
+			<div class="list-group mt-4">
+				<a href="#"
+					class="list-group-item list-group-item-action list-group-item-secondary active">
 					All Products </a>
 
 				<%
@@ -45,19 +47,43 @@
 		</div>
 
 
-		<!-- Propducts -->
+		<!-- Products -->
 		<div class="col-md-8">
-			<h1>
-				No of Products:
-				<%=prodList.size()%></h1>
-			<%
-				for (ProductBean product : prodList) {
+			<div class="row mt-4">
+				<div class="col-md-12">
+					<div class="card-deck">
+						<%
+							for (ProductBean product : prodList) {
+						%>
 
-					out.println(product.getProdPic() + "<br>");
-					out.println(product.getProdTitle() + "<br><br>");
+						<div class="card">
+						
+						<div class="container text-center">
+						<img class="card-img-top m-2" style="max-height:140px; max-width:100%; width:auto;" src="Images/Products-img/<%=product.getProdPic() %>" alt="Product Image">
+						</div>
+							
+							
+							<div class="card-body">
+								<h5 class="card-title"><%=product.getProdTitle()%></h5>
+								<p class="card-text"><%=TenWordsHelper.getTenWords(product.getProdDescription())%></p>
+							</div>
 
-				}
-			%>
+							<div class="card-footer">
+								<button class="btn btn-outline-secondary">Add to Cart</button>
+								<button class="btn custom-bg">
+									₹
+									<%=product.getProdPrice()%></button>
+							</div>
+						</div>
+
+						<%
+							}
+						%>
+					</div>
+				</div>
+			</div>
+
+
 		</div>
 
 	</div>

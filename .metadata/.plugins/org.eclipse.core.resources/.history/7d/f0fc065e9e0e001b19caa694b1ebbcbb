@@ -1,0 +1,11 @@
+package com.IndianCart.Helper;
+
+public class TenWordsHelper {
+	
+	public static String getTenWords(String description)
+	{
+		String[] s= description.split("");
+		return s;
+	}
+
+}

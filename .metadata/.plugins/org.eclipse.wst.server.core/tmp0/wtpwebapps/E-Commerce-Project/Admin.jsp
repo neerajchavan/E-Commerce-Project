@@ -1,5 +1,5 @@
 <%@page import="com.IndianCart.Model.*"%>
-<%@page import="com.IndianCart.Dao.CategoryFetchDao" %>
+<%@page import="com.IndianCart.Dao.CategoryDao" %>
 <%@page import="java.util.List" %>
 
 
@@ -115,7 +115,7 @@
         	
       
         	<%
-        	List<CategoryBean> cList = CategoryFetchDao.getCategory();
+        	List<CategoryBean> cList = CategoryDao.getCategory();
         	%>
         	
         	<div class="form-group">

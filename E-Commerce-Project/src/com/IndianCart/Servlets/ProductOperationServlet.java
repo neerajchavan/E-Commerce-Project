@@ -85,7 +85,6 @@ public class ProductOperationServlet extends HttpServlet {
 			// pic upload - find out path of folder to upload picture
 			String path = "/Users/neeraj/Eclipse-Projects/E-Commerce-Project/E-Commerce-Project/WebContent/Images/Products-img"
 					+ File.separator + part.getSubmittedFileName();
-			System.out.println("path.io.FileNotFoundException: " + path);
 
 			try {
 				// uploading code

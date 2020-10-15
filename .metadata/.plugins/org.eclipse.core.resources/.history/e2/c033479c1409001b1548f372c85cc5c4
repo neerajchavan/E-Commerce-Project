@@ -1,7 +1,0 @@
-package com.IndianCart.Model;
-
-public class UserBean {
-	private int userID;
-	private String userName, userEmail, userPass, userMobno, userPic, userAddress;
-
-}
