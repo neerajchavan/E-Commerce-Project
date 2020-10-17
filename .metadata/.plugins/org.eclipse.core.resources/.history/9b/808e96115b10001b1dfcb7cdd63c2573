@@ -48,8 +48,8 @@
 						class="list-group-item list-group-item-action list-group-item-secondary
 						
 						<%
-						String categoryId = Integer.toString(category.getCategoryId());
-						if(!cat.trim().equals("all") && cat.equals(categoryId)){%>
+						int cid = Integer.parseInt(cat);
+						if(!cat.trim().equals("all")){%>
 					    active
 						<%}%>
 						

@@ -47,10 +47,11 @@
 					<a href="index.jsp?category=<%=category.getCategoryId()%>"
 						class="list-group-item list-group-item-action list-group-item-secondary
 						
-						<%-- <%=
-						if(!cat.equals("all"))
-						cat.equals(Integer.toString(category.getCategoryId()) ? "active" : ""
-						%> --%>
+						<%
+						String categoryId = Integer.toString(category.getCategoryId());
+						if(!cat.trim().equals("all") && cat.equals(categoryId)){%>
+					    active
+						<%}%>
 						
 						">
 
@@ -100,8 +101,7 @@
 								<div class="card-footer">
 									<button class="btn btn-outline-secondary">Add to Cart</button>
 									<button class="btn custom-bg">
-										₹
-										<%=prod.getProdPrice()%></button>
+										₹<%=prod.getProdPrice()%>/-</button>
 								</div>
 							</div>
 

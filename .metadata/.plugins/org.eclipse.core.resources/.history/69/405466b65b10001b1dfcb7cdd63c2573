@@ -49,7 +49,7 @@
 						
 						<%
 						String categoryId = Integer.toString(category.getCategoryId());
-						if(!cat.trim().equals("all") && cat.equals(categoryId)){%>
+						if(!cat.trim().equals("all") && {%>
 					    active
 						<%}%>
 						
