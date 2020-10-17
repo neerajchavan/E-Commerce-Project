@@ -71,4 +71,38 @@ public class ProductDao {
 		return list;
 	}
 
+	
+	public static List<ProductBean> getProductsById(int cId) {
+		List<ProductBean> list = new ArrayList<ProductBean>();
+		Connection con;
+		String query = "select * from Product where ccID=?";
+
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection("jdbc:mysql://localhost/E-Commerce-Project", "root", "root1234");
+			PreparedStatement ps = con.prepareStatement(query);
+			ps.setInt(1, cId);
+			ResultSet rs = ps.executeQuery();
+
+			while (rs.next()) {
+				ProductBean pb = new ProductBean();
+				pb.setProdId(rs.getInt("pID"));
+				pb.setpCategoryID(rs.getInt("ccID"));
+				pb.setProdTitle(rs.getString("pTitle"));
+				pb.setProdDescription(rs.getString("pDesc"));
+				pb.setProdPic(rs.getString("pPhoto"));
+				pb.setProdPrice(rs.getInt("pPrice"));
+				pb.setProdQty(rs.getInt("pQty"));
+
+				list.add(pb);
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return list;
+	}
+
 }

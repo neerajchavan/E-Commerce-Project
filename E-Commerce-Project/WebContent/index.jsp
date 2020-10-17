@@ -17,75 +17,105 @@
 
 <body>
 	<%@include file="Components/navbar.jsp"%>
-	<div class="row mt-3 mx-2">
+	<div class="container-fluid">
+		<div class="row mt-3 mx-2">
 
-		<%
-			List<ProductBean> prodList = ProductDao.getAllProducts();
-			List<CategoryBean> catList = CategoryDao.getCategory();
-		%>
+			<%
+				String cat = request.getParameter("category");
 
-		<!-- Categories -->
-		<div class="col-md-2">
+				List<CategoryBean> catList = CategoryDao.getCategory();
+				List<ProductBean> product = null;
 
-			<div class="list-group mt-4">
-				<a href="#"
-					class="list-group-item list-group-item-action list-group-item-secondary active">
-					All Products </a>
+				if (cat == null || cat.trim().equals("all")) {
+					product = ProductDao.getAllProducts();
+				} else {
+					product = ProductDao.getProductsById(Integer.parseInt(cat.trim()));
+				}
+			%>
 
-				<%
-					for (CategoryBean category : catList) {
-				%>
-				<a href="#" class="list-group-item list-group-item-action "> <%=category.getCategoryTitle()%>
-				</a>
-				<%
-					}
-				%>
+			<!-- Categories -->
+			<div class="col-md-2">
+
+				<div class="list-group mt-4">
+					<a href="index.jsp?category=all"
+						class="list-group-item list-group-item-action list-group-item-secondary <%if (cat == null || cat.trim().equals("all")) {%>active<%}%>">
+						All Products </a>
+
+					<%
+						for (CategoryBean category : catList) {
+					%>
+					<a href="index.jsp?category=<%=category.getCategoryId()%>"
+						class="list-group-item list-group-item-action list-group-item-secondary
+						
+						<%-- <%=
+						if(!cat.equals("all"))
+						cat.equals(Integer.toString(category.getCategoryId()) ? "active" : ""
+						%> --%>
+						
+						">
+
+						<%=category.getCategoryTitle()%>
+					</a>
+					<%
+						}
+					%>
+
+				</div>
+
 
 			</div>
 
 
-		</div>
+			<!-- Products -->
+			<div class="col-md-10">
+				<div class="row mt-4">
+					<div class="col-md-12">
+						<div class="card-columns">
+							<%
+								if (product.size() == 0) {
+									out.println("<h1>Sorry, No products at the moment!</h1>");
+								}
+							%>
 
 
-		<!-- Products -->
-		<div class="col-md-8">
-			<div class="row mt-4">
-				<div class="col-md-12">
-					<div class="card-deck">
-						<%
-							for (ProductBean product : prodList) {
-						%>
+							<%
+								for (ProductBean prod : product) {
+							%>
 
-						<div class="card">
-						
-						<div class="container text-center">
-						<img class="card-img-top m-2" style="max-height:140px; max-width:100%; width:auto;" src="Images/Products-img/<%=product.getProdPic() %>" alt="Product Image">
-						</div>
-							
-							
-							<div class="card-body">
-								<h5 class="card-title"><%=product.getProdTitle()%></h5>
-								<p class="card-text"><%=TenWordsHelper.getTenWords(product.getProdDescription())%></p>
+							<div class="card">
+
+								<div class="container text-center">
+									<img class="card-img-top m-2"
+										style="max-height: 140px; max-width: 100%; width: auto;"
+										src="Images/Products-img/<%=prod.getProdPic()%>"
+										alt="Product Image">
+								</div>
+
+
+								<div class="card-body">
+									<h5 class="card-title"><%=prod.getProdTitle()%></h5>
+									<p class="card-text"><%=TenWordsHelper.getTenWords(prod.getProdDescription())%></p>
+								</div>
+
+								<div class="card-footer">
+									<button class="btn btn-outline-secondary">Add to Cart</button>
+									<button class="btn custom-bg">
+										₹
+										<%=prod.getProdPrice()%></button>
+								</div>
 							</div>
 
-							<div class="card-footer">
-								<button class="btn btn-outline-secondary">Add to Cart</button>
-								<button class="btn custom-bg">
-									₹
-									<%=product.getProdPrice()%></button>
-							</div>
+							<%
+								}
+							%>
 						</div>
-
-						<%
-							}
-						%>
 					</div>
 				</div>
+
+
 			</div>
 
-
 		</div>
-
 	</div>
 </body>
 
