@@ -3,7 +3,7 @@
 <%@page import="com.IndianCart.Model.*"%>
 <%@page import="com.IndianCart.Dao.ProductDao"%>
 <%@page import="com.IndianCart.Dao.CategoryDao"%>
-<%@page import="com.IndianCart.Helper.TenWordsHelper"%>
+<%@page import="com.IndianCart.Helper.*"%>
 <%@page import="java.util.List"%>
 <!DOCTYPE html>
 <html>
@@ -47,14 +47,10 @@
 					<a href="index.jsp?category=<%=category.getCategoryId()%>"
 						class="list-group-item list-group-item-action list-group-item-secondary
 						
-						<%
-						String categoryId = Integer.toString(category.getCategoryId());
-						if(!cat.trim().equals("all") && cat.equals(categoryId)){%>
-					    active
-						<%}%>
+						<%boolean b = CategoryActiveHelper.setActiveClass(cat, category.getCategoryId());
+						if(b){%>active<%}%>
 						
 						">
-
 						<%=category.getCategoryTitle()%>
 					</a>
 					<%
@@ -99,9 +95,13 @@
 								</div>
 
 								<div class="card-footer">
-									<button class="btn btn-outline-secondary">Add to Cart</button>
+									<button class="btn btn-outline-secondary onclick=" add_to_cart(
+										<%=prod.getProdId()%>, <%= prod.getProdTitle()%>, <%=prod.getProdPrice()%>)">
+										Add to Cart
+									</button>
 									<button class="btn custom-bg">
-										₹<%=prod.getProdPrice()%>/-</button>
+										₹<%=prod.getProdPrice()%>/-
+									</button>
 								</div>
 							</div>
 

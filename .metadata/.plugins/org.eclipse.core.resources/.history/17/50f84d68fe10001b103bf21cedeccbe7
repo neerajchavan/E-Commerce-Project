@@ -1,0 +1,15 @@
+package com.IndianCart.Helper;
+
+public class CategoryActiveHelper {
+	
+	public static boolean setActiveClass(String cat, int cId) {
+		boolean set = false;
+		try{if(!cat.equals("all")){
+			if(category.getCategoryId() == Integer.parseInt(cat)){
+			
+	    }}} 
+		catch(Exception e) { }
+		return set;
+	}
+
+}

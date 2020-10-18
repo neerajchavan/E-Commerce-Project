@@ -22,6 +22,8 @@ public class CategoryDao {
 			while(rs.next())
 			{
 			 CategoryBean cb = new CategoryBean();
+//			 int checkCid = rs.getInt("cId");
+//			 if(checkCid == 0)
 			 cb.setCategoryId(rs.getInt("cId"));
 			 cb.setCategoryTitle(rs.getString("cTitle"));
 			 
