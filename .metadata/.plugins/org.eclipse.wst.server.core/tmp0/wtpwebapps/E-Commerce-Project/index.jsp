@@ -95,8 +95,8 @@
 								</div>
 
 								<div class="card-footer">
-									<button class="btn btn-outline-secondary onclick=" add_to_cart(
-										<%=prod.getProdId()%>, <%= prod.getProdTitle()%>, <%=prod.getProdPrice()%>)">
+									<button class="btn btn-outline-secondary" 
+									onclick="add_to_cart(<%=prod.getProdId()%>,'<%= prod.getProdTitle()%>',<%=prod.getProdPrice()%>)">
 										Add to Cart
 									</button>
 									<button class="btn custom-bg">
