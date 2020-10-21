@@ -11,5 +11,6 @@
  <div class="custom-bg">
  <h2>Checking!</h2>
  </div>
+ 	<%@include file="Components/Common_Modals.jsp" %>
 </body>
 </html>
