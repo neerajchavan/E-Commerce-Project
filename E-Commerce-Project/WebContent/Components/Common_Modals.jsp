@@ -19,3 +19,6 @@
     </div>
   </div>
 </div>
+
+
+<div id="toast">This is out custom toast text</div>

@@ -1,0 +1,85 @@
+.custom-bg {
+	background:#eeeeee;
+}
+
+.custom-bg-200{
+	background:#929aab;
+}
+
+
+/*Login Page*/
+
+.login-text h3{
+	color:#393e46;
+}
+
+.login-text{
+	color:#393e46;
+}
+
+.login-text:hover{
+	background:#929aab;
+}
+
+
+/* Admin Page */
+
+.admin-img{
+ max-width : 10px;	
+ height: 100px;
+}
+
+.admin .card{
+	border: 1px solid #929aab;
+}
+
+.admin .card:hover{
+	box-shadow : 0 8px 50px grey;
+	transform : scale(1.05);
+	cursor : pointer;
+	transition : 0.3s;
+}
+
+/* Add to cart - Toast message */
+position : fixed;
+bottom : 30px;
+left : 50%;
+margin-left : -120px;
+background : #333;
+padding : 15px;
+color : white;
+text-align : center;
+z-index : 1;
+font-size : 18px;
+visibility : hidden;
+box-shadow : 0px 0px 100px #000;
+}
+
+#toast.display{
+	visibility: visible;
+	animation : fadeIn 0.5s, fadeOut 0.5s 2.5s;
+}
+
+@keyframes fadeIn{
+	from{
+	bottom : 0;
+	opacity : 0;
+	}
+	to{
+	bottom : 30;
+	opacity : 1;
+	}
+}
+
+@keyframes fadeOut{
+	from{
+	bottom : 30;
+	opacity : 1;
+	}
+	to{
+	bottom : 0;
+	opacity : 0;
+	}
+}
+
+

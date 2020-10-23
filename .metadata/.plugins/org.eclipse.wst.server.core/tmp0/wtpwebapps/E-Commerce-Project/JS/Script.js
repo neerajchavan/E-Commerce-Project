@@ -7,7 +7,8 @@ function add_to_cart(pId, pName, pPrice){
 		let product  = {productId : pId, productName : pName, productQty : 1, productPrice : pPrice};
 		products.push(product);
 		localStorage.setItem("cart", JSON.stringify(products));
-		console.log("Product added for first time!");
+		//console.log("Product added for first time!");
+		showToast(oldProduct.productName+" is added to cart, Qty = " + oldProduct.productQty);
 		
 		
 	}
@@ -25,7 +26,9 @@ function add_to_cart(pId, pName, pPrice){
 			})
 			
 			localStorage.setItem("cart", JSON.stringify(pCart));
-			console.log("Product quantity is increased!");
+			//console.log("Product quantity is increased!");
+			showToast(oldProduct.productName + " Quantity is increased, Qty = " + oldProduct.productQty);
+
 
 			
 		}
@@ -34,7 +37,9 @@ function add_to_cart(pId, pName, pPrice){
 			let product  = {productId : pId, productName : pName, productQty : 1, productPrice : pPrice};
 			pCart.push(product);
 			localStorage.setItem("cart", JSON.stringify(pCart));
-			console.log("Product added!");
+			//console.log("Product added!");
+			showToast(" Product is added to cart");
+
 
 		}
 	}
@@ -82,7 +87,7 @@ function updateCart(){
 						<td>${item.productPrice}</td>
 						<td>${item.productQty}</td>
 						<td>${item.productQty * item.productPrice}</td>
-						<td><button class="btn btn-danger btn-sm">Remove</button></td>
+						<td><button onclick='deleteItemFromCart(${item.productId})' class="btn btn-danger btn-sm">Remove</button></td>
 					 </tr>
 			`
 			
@@ -97,5 +102,30 @@ function updateCart(){
 
 	}
 	
+}
+
+function deleteItemFromCart(pId){
+	let cart = JSON.parse(localStorage.getItem('cart'));
+	let newCart = cart.filter((item) => item.productId != pId)
+	
+	localStorage.setItem('cart',JSON.stringify(newCart));
+	
+	updateCart();
+	showToast("Item is removed from cart");
+
+}
+
+$(document).ready(function(){
+	updateCart();
+})
+
+
+function showToast(content){
+	$("#toast").addClass('display');
+	$("#toast").html(content);
+	
+	setTimeout(() => {
+		$("#toast").removeClass('display');
+	}, 2000);
 }
 
