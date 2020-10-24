@@ -105,8 +105,7 @@
 							<img src="Images/plus.png" class="img-fluid" width="100px"
 								height="100px" />
 						</div>
-						<!-- <h1>2345</h1> -->
-						<br>
+						<h1>2345</h1>
 						<h1>Add Categories</h1>
 					</div>
 				</div>
@@ -119,8 +118,7 @@
 							<img src="Images/add-to-basket.png" class="img-fluid"
 								width="100px" height="100px" />
 						</div>
-						<!-- <h1>2345</h1> -->
-						<br>
+						<h1>2345</h1>
 						<h1>Add Products</h1>
 					</div>
 				</div>

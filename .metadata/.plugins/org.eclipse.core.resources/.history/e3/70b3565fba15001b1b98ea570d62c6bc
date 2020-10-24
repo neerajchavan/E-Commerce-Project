@@ -1,6 +1,5 @@
 <%@page import="com.IndianCart.Model.*"%>
 <%@page import="com.IndianCart.Dao.CategoryDao"%>
-<%@page import="com.IndianCart.Helper.GetCountHelper"%>
 <%@page import="java.util.List"%>
 
 
@@ -21,8 +20,6 @@
 
 <%
 	List<CategoryBean> cList = CategoryDao.getCategory();
-	int userCount = GetCountHelper.getUserCount();
-	int prodCount = GetCountHelper.getProductCount();
 %>
 
 
@@ -39,7 +36,7 @@
 </head>
 <body>
 	<%@include file="Components/navbar.jsp"%>
-	<div class="container mt-5 admin">
+	<div class="container mt-6 admin">
 
 		<div class="container-fluid">
 			<%@include file="Components/Message.jsp"%>
@@ -53,7 +50,7 @@
 							<img src="Images/users.png" class="img-fluid" width="100px"
 								height="100px" />
 						</div>
-						<h1><%=userCount %></h1>
+						<h1>2345</h1>
 						<h1>Users</h1>
 					</div>
 				</div>
@@ -77,7 +74,7 @@
 							<img src="Images/product.png" class="img-fluid" width="100px"
 								height="100px" />
 						</div>
-						<h1><%= prodCount %></h1>
+						<h1>2345</h1>
 						<h1>Products</h1>
 					</div>
 				</div>
@@ -105,8 +102,7 @@
 							<img src="Images/plus.png" class="img-fluid" width="100px"
 								height="100px" />
 						</div>
-						<!-- <h1>2345</h1> -->
-						<br>
+						<h1>2345</h1>
 						<h1>Add Categories</h1>
 					</div>
 				</div>
@@ -119,8 +115,7 @@
 							<img src="Images/add-to-basket.png" class="img-fluid"
 								width="100px" height="100px" />
 						</div>
-						<!-- <h1>2345</h1> -->
-						<br>
+						<h1>2345</h1>
 						<h1>Add Products</h1>
 					</div>
 				</div>

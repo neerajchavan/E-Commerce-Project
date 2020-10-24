@@ -1,6 +1,7 @@
 <%@page import="com.IndianCart.Model.*"%>
-<%@page import="com.IndianCart.Dao.CategoryDao" %>
-<%@page import="java.util.List" %>
+<%@page import="com.IndianCart.Dao.CategoryDao"%>
+<%@page import="com.IndianCart.Helper.GetCountHelper"%>
+<%@page import="java.util.List"%>
 
 
 <%
@@ -18,6 +19,12 @@
 	}
 %>
 
+<%
+	List<CategoryBean> cList = CategoryDao.getCategory();
+	int userCount = GetCountHelper.getUserCount();
+	int prodCount = GetCountHelper.getProductCount();
+%>
+
 
 
 
@@ -33,118 +40,211 @@
 <body>
 	<%@include file="Components/navbar.jsp"%>
 	<div class="container mt-5 admin">
-	
-	<div class="container-fluid">
-	<%@include file="Components/Message.jsp" %>
-	</div>
-	
-	<div class="row">
-	<div class="col-md-4"><div class="card"><div class="card-body text-center"><div class="container"><img src="Images/users.png" class="img-fluid" width="100px" height="100px"/></div><h1>2345</h1><h1>Users</h1></div></div></div>
-	<div class="col-md-4"><div class="card"><div class="card-body text-center"><div class="container"><img src="Images/inventory.png" class="img-fluid" width="100px" height="100px"/></div><h1>2345</h1><h1>Categories</h1></div></div></div>
-	<div class="col-md-4"><div class="card"><div class="card-body text-center"><div class="container"><img src="Images/product.png" class="img-fluid" width="100px" height="100px"/></div><h1>2345</h1><h1>Products</h1></div></div></div>
-	</div>
-	
-	<div class="row mt-3">
-	<div class="col-md-4"><div class="card"><div class="card-body text-center"><div class="container"><img src="Images/distribution.png" class="img-fluid" width="100px" height="100px"/></div><h1>2345</h1><h1>Show Orders</h1></div></div></div>
-	<div class="col-md-4"><div class="card" data-toggle="modal" data-target="#add-category-modal"><div class="card-body text-center"><div class="container"><img src="Images/plus.png" class="img-fluid" width="100px" height="100px"/></div><h1>2345</h1><h1>Add Categories</h1></div></div></div>
-	<div class="col-md-4"><div class="card" data-toggle="modal" data-target="#add-product-modal"><div class="card-body text-center"><div class="container"><img src="Images/add-to-basket.png" class="img-fluid" width="100px" height="100px"/></div><h1>2345</h1><h1>Add Products</h1></div></div></div>
-	
-	</div>
-	</div>
-	
-<!-- Add-Categpry Modal -->
-<div class="modal fade" id="add-category-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header custom-bg">
-        <h5 class="modal-title" id="exampleModalLabel">Fill Category Details</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form action="ProductOperationServlet" method="post">
-        
-        	<input type="hidden" name="operation" value="addCategory">
-        	<div class="form-group">
-        		<input type="text" class="form-control" name="catTitle" placeholder="Enter category title" required>
-        	</div>
-        	
-        	<div class="form-group">
-        		<textarea class="form-control" name="catDescription" placeholder="Enter category description" required style="height:250px"></textarea>
-        	</div>
-        	
-        	<div class="container pl-0 mt-4 mb-3">
-        		<button class="btn btn-outline-success mr-3">Add Category</button>
-        		<button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
-        	</div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
 
-<!-- Add Product Modal -->
-<div class="modal fade" id="add-product-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header custom-bg">
-        <h5 class="modal-title" id="exampleModalLabel">Fill Product Details</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form action="ProductOperationServlet" method="post" enctype="multipart/form-data">
-        
-            <input type="hidden" name="operation" value="addProduct">
-        
-        	
-        	<div class="form-group">
-        		<input type="text" class="form-control" name="prodTitle" placeholder="Enter prodcut title" required>
-        	</div>
-        	
-        	<div class="form-group">
-        		<textarea class="form-control" name="prodDescription" placeholder="Enter prodcut description" required style="height:250px"></textarea>
-        	</div>
-        	
-        	<div class="form-control mb-3">
-        	 <label id="pPic">Product Picture</label> <br>
-        	 <input type="file" id="pPic" name="prodPic" required >
-        	</div>
-        	
-      
-        	<%
-        	List<CategoryBean> cList = CategoryDao.getCategory();
-        	%>
-        	
-        	<div class="form-group">
-      				<select name="catId" name="" class="form-control">
-      				<%for(CategoryBean cb : cList) { %>
-        				<option value="<%= cb.getCategoryId() %>"><%=cb.getCategoryTitle() %></option>
-        			<%}%>		
-        	     	</select>
-    		</div>
-        	
-        	<div class="form-group">
-        		<input type="number" class="form-control" name="prodPrice" placeholder="Enter prodcut price" required>
-        	</div>
-        	
-        	<div class="form-group mb-3">
-        		<input type="number" class="form-control" name="prodQuantity" placeholder="Enter prodcut quantity" required>
-        	</div>	
-        	
-        	<div class="container pl-0 mb-3 mt-4">
-        		<button class="btn btn-outline-success mr-3">Add Category</button>
-        		<button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
-        	</div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
+		<div class="container-fluid">
+			<%@include file="Components/Message.jsp"%>
+		</div>
 
-	<%@include file="Components/Common_Modals.jsp" %>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="card">
+					<div class="card-body text-center">
+						<div class="container">
+							<img src="Images/users.png" class="img-fluid" width="100px"
+								height="100px" />
+						</div>
+						<h1><%=userCount %></h1>
+						<h1>Users</h1>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card">
+					<div class="card-body text-center">
+						<div class="container">
+							<img src="Images/inventory.png" class="img-fluid" width="100px"
+								height="100px" />
+						</div>
+						<h1><%= cList.size() %></h1>
+						<h1>Categories</h1>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card">
+					<div class="card-body text-center">
+						<div class="container">
+							<img src="Images/product.png" class="img-fluid" width="100px"
+								height="100px" />
+						</div>
+						<h1><%= prodCount %></h1>
+						<h1>Products</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row mt-3">
+			<!-- <div class="col-md-4">
+				<div class="card">
+					<div class="card-body text-center">
+						<div class="container">
+							<img src="Images/distribution.png" class="img-fluid"
+								width="100px" height="100px" />
+						</div>
+						<h1>2345</h1>
+						<h1>Show Orders</h1>
+					</div>
+				</div>
+			</div> -->
+			<div class="col-md-6">
+				<div class="card" data-toggle="modal"
+					data-target="#add-category-modal">
+					<div class="card-body text-center">
+						<div class="container">
+							<img src="Images/plus.png" class="img-fluid" width="100px"
+								height="100px" />
+						</div>
+						<!-- <h1>2345</h1> -->
+						<br>
+						<h1>Add Categories</h1>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="card" data-toggle="modal"
+					data-target="#add-product-modal">
+					<div class="card-body text-center">
+						<div class="container">
+							<img src="Images/add-to-basket.png" class="img-fluid"
+								width="100px" height="100px" />
+						</div>
+						<!-- <h1>2345</h1> -->
+						<br>
+						<h1>Add Products</h1>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<!-- Add-Categpry Modal -->
+	<div class="modal fade" id="add-category-modal" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg modal-dialog-centered"
+			role="document">
+			<div class="modal-content">
+				<div class="modal-header custom-bg">
+					<h5 class="modal-title" id="exampleModalLabel">Fill Category
+						Details</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form action="ProductOperationServlet" method="post">
+
+						<input type="hidden" name="operation" value="addCategory">
+						<div class="form-group">
+							<input type="text" class="form-control" name="catTitle"
+								placeholder="Enter category title" required>
+						</div>
+
+						<div class="form-group">
+							<textarea class="form-control" name="catDescription"
+								placeholder="Enter category description" required
+								style="height: 250px"></textarea>
+						</div>
+
+						<div class="container pl-0 mt-4 mb-3">
+							<button class="btn btn-outline-success mr-3">Add
+								Category</button>
+							<button type="button" class="btn btn-outline-secondary"
+								data-dismiss="modal">Cancel</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Add Product Modal -->
+	<div class="modal fade" id="add-product-modal" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg modal-dialog-centered"
+			role="document">
+			<div class="modal-content">
+				<div class="modal-header custom-bg">
+					<h5 class="modal-title" id="exampleModalLabel">Fill Product
+						Details</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form action="ProductOperationServlet" method="post"
+						enctype="multipart/form-data">
+
+						<input type="hidden" name="operation" value="addProduct">
+
+
+						<div class="form-group">
+							<input type="text" class="form-control" name="prodTitle"
+								placeholder="Enter prodcut title" required>
+						</div>
+
+						<div class="form-group">
+							<textarea class="form-control" name="prodDescription"
+								placeholder="Enter prodcut description" required
+								style="height: 250px"></textarea>
+						</div>
+
+						<div class="form-control mb-3">
+							<label id="pPic">Product Picture</label> <br> <input
+								type="file" id="pPic" name="prodPic" required>
+						</div>
+
+
+
+
+						<div class="form-group">
+							<select name="catId" name="" class="form-control">
+								<%
+									for (CategoryBean cb : cList) {
+								%>
+								<option value="<%=cb.getCategoryId()%>"><%=cb.getCategoryTitle()%></option>
+								<%
+									}
+								%>
+							</select>
+						</div>
+
+						<div class="form-group">
+							<input type="number" class="form-control" name="prodPrice"
+								placeholder="Enter prodcut price" required>
+						</div>
+
+						<div class="form-group mb-3">
+							<input type="number" class="form-control" name="prodQuantity"
+								placeholder="Enter prodcut quantity" required>
+						</div>
+
+						<div class="container pl-0 mb-3 mt-4">
+							<button class="btn btn-outline-success mr-3">Add
+								Category</button>
+							<button type="button" class="btn btn-outline-secondary"
+								data-dismiss="modal">Cancel</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<%@include file="Components/Common_Modals.jsp"%>
 
 
 </body>
