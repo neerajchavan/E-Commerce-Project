@@ -13,8 +13,8 @@
         <div class="cart-body"></div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary checkout-btn" data-dismiss="modal">Checkout</button>
-        <button type="button" class="btn btn-primary">Close</button>
+        <button type="button" class="btn btn-secondary checkout-btn" data-dismiss="modal" onclick="goToCheckout()">Checkout</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

@@ -56,8 +56,7 @@ function updateCart(){
 		console.log("Cart is empty!");
 		$(".cart-items").html("(0)");
 		$(".cart-body").html("<h3>Cart does not have any items</h3>");
-		$(".checkout-btn").addClass('disabled');
-
+		$(".checkout-btn").attr('disabled',true);
 	}
 	else{
 		// there is something in cart to show
@@ -98,6 +97,8 @@ function updateCart(){
 		<tr><td colspan='5' class="text-right font-weight-bold">Total Price : ${totalPrice}</td></tr>
 		</table>`;
 		$(".cart-body").html(table);
+		
+		$(".checkout-btn").attr('disabled',false);
 
 
 	}
@@ -127,5 +128,10 @@ function showToast(content){
 	setTimeout(() => {
 		$("#toast").removeClass('display');
 	}, 2000);
+}
+
+
+function goToCheckout(){
+	window.location = "Checkout.jsp";
 }
 
