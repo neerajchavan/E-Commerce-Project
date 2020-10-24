@@ -10,7 +10,7 @@ public class RegisterDao {
 
 	public static int registerUser(UserBean ub) {
 		int i = 0;
-		String query = "insert into Users values(?,?,?,?,?,?,?)";
+		String query = "insert into Users values(?,?,?,?,?,?,?,?)";
 		Connection con;
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -24,6 +24,7 @@ public class RegisterDao {
 			ps.setString(5, ub.getUserMobno());
 			ps.setString(6, null);
 			ps.setString(7, ub.getUserAddress());
+			ps.setString(8, "Normal");
 
 			i = ps.executeUpdate();
 		}

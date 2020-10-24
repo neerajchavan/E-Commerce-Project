@@ -36,18 +36,18 @@ public class LoginServlet extends HttpServlet {
 		ub.setUserPass(request.getParameter("pass"));
 		
 		boolean b = LoginDao.validateLogin(ub);
-		String userType = UserInfoDao.getUserType(ub);
-		ub.setUserType(userType);
+		ub = UserInfoDao.getUserInfo(ub);
+
 		HttpSession session;
 		
 		if (b) {
 			session = request.getSession();
 			session.setAttribute("current-user", ub );
 
-			if(userType.equals("Admin"))
+			if(ub.getUserType().equals("Admin"))
 				response.sendRedirect("Admin.jsp");
-			else if(userType.equals("Normal"))
-				response.sendRedirect("User.jsp");
+			else if(ub.getUserType().equals("Normal"))
+				response.sendRedirect("index.jsp");
 		} else {
 			session = request.getSession();
 			session.setAttribute("error_message", "Invalid Email/Password!");

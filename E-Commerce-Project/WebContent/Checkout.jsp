@@ -1,5 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+<%@page import="com.IndianCart.Dao.UserInfoDao" %>
+<%@page import="com.IndianCart.Model.UserBean" %>
+	
+
+
+<%
+	UserBean ub = (UserBean) session.getAttribute("current-user");
+	if (ub == null) {
+		session.setAttribute("message", "You are not logged in, Please Login to continue!");
+		response.sendRedirect("Login.jsp");
+		return;
+	}
+%>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +34,7 @@
 				<!-- cart -->
 				<div class="card">
 					<div class="card-body">
-						<h3 class="text-center mb-5">Your selected items</h3>
+						<h3 class="text-center mb-5">Your Selected Items</h3>
 						<div class="cart-body"></div>
 					</div>
 				</div>
@@ -26,11 +43,12 @@
 			<div class="col-md-6">
 				<div class="card">
 					<div class="card-body">
-						<h3 class="text-center mb-5">Enter your details</h3>
+						<h3 class="text-center mb-5">Enter Your Details</h3>
 						<form action="#">
 							<div class="form-group">
 								<label for="exampleInputEmail1">Email address</label> <input
-									type="email" class="form-control" id="exampleInputEmail1"
+									value="<%=ub.getUserEmail()%>" type="email"
+									class="form-control" id="exampleInputEmail1"
 									aria-describedby="emailHelp"> <small id="emailHelp"
 									class="form-text text-muted">We'll never share your
 									email with anyone else.</small>
@@ -38,7 +56,14 @@
 
 							<div class="form-group">
 								<label for="name">Your Name</label> <input type="text"
-									class="form-control" id="name" aria-describedby="emailHelp">
+									value="<%=ub.getUserName()%>" class="form-control" id="name"
+									aria-describedby="emailHelp">
+							</div>
+
+							<div class="form-group">
+								<label for="name">Mobile Number</label> <input type="text"
+									value="<%=ub.getUserMobno()%>" class="form-control" id="name"
+									aria-describedby="emailHelp">
 							</div>
 
 							<div class="form-group">

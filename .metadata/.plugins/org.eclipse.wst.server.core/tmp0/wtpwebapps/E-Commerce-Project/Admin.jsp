@@ -144,5 +144,8 @@
   </div>
 </div>
 
+	<%@include file="Components/Common_Modals.jsp" %>
+
+
 </body>
 </html>
